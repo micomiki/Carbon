@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Log in" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Carbon.Account.Login" Async="true" %>
+﻿<%@ Page Title="CFTA" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Carbon.Account.Login" Async="true" %>
 
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
@@ -6,7 +6,8 @@
     <header>
         <link href="assets/css/style.css" rel="stylesheet" />
     </header>
-
+    <section id="login" runat="server" style="background-image: url('assets/img/slide/slide-1.jpg');">
+   
     <div class="container-fluid">
         <div class="row d-flex justify-content-center align-items-center vh-100">
             <div class="col-md-9 col-lg-6 col-xl-5">
@@ -17,7 +18,7 @@
              
 
                 <div class="divider d-flex align-items-center my-4">
-                    <p class="text-center fw-bold mx-3 mb-0">Login</p>
+                    <p class="text-center fw-bold mx-5 display-6">Login</p>
                 </div>
                 <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
                     <p class="text-danger">
@@ -53,16 +54,7 @@
             </div>
         </div>
     </div>
+        </section>
 
-    <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
-        <!-- Copyright -->
-       
-        <!-- Right -->
-        <div class="col-md-4">
-            <section id="socialLoginForm">
-                <uc:OpenAuthProviders runat="server" ID="OpenAuthLogin" />
-            </section>
-        </div>
-        <!-- Right -->
-    </div>
+    
 </asp:Content>
