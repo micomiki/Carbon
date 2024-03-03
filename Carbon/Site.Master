@@ -13,6 +13,11 @@
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <style>
+    .navbar-nav .nav-item.active {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Adjust the shadow color and intensity as needed */
+    }
+</style>
 
 </head>
 <body>
@@ -36,23 +41,39 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm bg-primary text-white">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm text-white" style="height: 60px; background-color: darkslategray;">
             <div class="container">
-                <a class="navbar-brand fw-bold text-white " runat="server" href="~/" >CFTA</a>
+               <a class="navbar-brand fw-bold text-white" id="CFTALink" runat="server" style="margin-left:30px" href="~/DataEntry.aspx">CFTA</a>
+
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between" style="height: 60px; background-color: darkslategray;">
                    
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <LoggedInTemplate>
-                            <ul class="navbar-nav navbar-right">
-                                <li><a runat="server" class="nav-link" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
-                                <li>
-                                    <asp:LoginStatus runat="server" CssClass="nav-link" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                            <script>
+                              Generate here
+                            </script>
+                            <ul class="navbar-nav" style="margin-left: 30px">
+                                <li class="nav-item active">
+                                    <a runat="server" class="nav-link " href="~/DataEntry" title="Data Entry" style="color: white">DataEntry</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a runat="server" class="nav-link" href="~/DataHistory" title="Data History" style="color: white">DataHistory</a>
                                 </li>
                             </ul>
+
+                            <ul class="navbar-nav ml-auto" style="margin-right: 30px">
+                                <li class="nav-item">
+                                    <a runat="server" class="nav-link" href="~/Account/Manage" title="Manage your account" style="color: white">Hello, <%: Context.User.Identity.GetUserName()  %> !</a>
+                                </li>
+                                <li class="nav-item">
+                                    <asp:LoginStatus runat="server" CssClass="nav-link" LogoutAction="Redirect" Style="color: white" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                </li>
+                            </ul>
+
                         </LoggedInTemplate>
                     </asp:LoginView>
                 </div>
@@ -63,11 +84,31 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - CFTA</p>
+                <p style="color:white">&copy; <%: DateTime.Now.Year %> - CFTA</p>
             </footer>
         </div>
     </form>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
-    </asp:PlaceHolder></body>
+    </asp:PlaceHolder>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <script>
+     $(document).ready(function () {
+         var isAuthenticated = '<%= Context.User.Identity.IsAuthenticated %>';
+
+        if (isAuthenticated === 'True') {
+            $('#CFTALink').attr('href', '<%= ResolveUrl("~/DataEntry.aspx") %>');
+        } else {
+            $('#CFTALink').attr('href', '<%= ResolveUrl("~/Default.aspx") %>');
+        }
+
+        $('ul.navbar-nav > li').click(function (e) {
+            $('ul.navbar-nav > li').removeClass('active');
+            $(this).addClass('active');
+        });
+    });
+ </script>
+
+
+</body>
 </html>

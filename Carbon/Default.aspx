@@ -32,11 +32,11 @@
                                     <h2 class="animate__animated animate__fadeInDown">Carbon Footprint Tracker Application</h2>
                                     <h3 class="animate__animated animate__fadeInDown">What Is Carbon Footprint?</h3>
                                     <p class="animate__animated animate__fadeInUp">A carbon footprint represents the total greenhouse gas emissions produced by an individual, organization, or product. This measurement encompasses all direct and indirect emissions associated with activities such as energy consumption, transportation, and production processes.</p>
-                                   <asp:Button ID="btnGetStarted" runat="server" Text="Login" CssClass="btn-get-started animate__animated animate__fadeInUp scrollto" OnClick="btnGetStarted_Click" />
-                                    </div>
+                                    <asp:Button ID="btnGetStarted" runat="server" Text="Login" CssClass="btn-get-started animate__animated animate__fadeInUp scrollto" OnClick="btnGetStarted_Click" />
+                                </div>
                             </div>
                         </div>
-
+                        <!-- Slide 2 -->
                         <div class="carousel-item" style="background-image: url(assets/img/slide/slide-1.jpg);">
                             <div class="carousel-container">
                                 <div class="carousel-content">
@@ -73,16 +73,17 @@
                     </div>
 
                     <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon bi bi-chevron-double-left" aria-hidden="true"></span>
-        </a>
+                        <span class="carousel-control-prev-icon bi bi-chevron-double-left" aria-hidden="true"></span>
+                    </a>
 
-        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
-          <span class="carousel-control-next-icon bi bi-chevron-double-right" aria-hidden="true"></span>
-        </a>
+                    <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+                        <span class="carousel-control-next-icon bi bi-chevron-double-right" aria-hidden="true"></span>
+                    </a>
 
                 </div>
             </div>
-        </section><!-- End Hero -->
+        </section>
+        <!-- End Hero -->
 
         <!-- Vendor JS Files -->
         <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>

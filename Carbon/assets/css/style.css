@@ -1335,3 +1335,52 @@ section {
         height: 100%;
     }
 }
+
+/* Custom CSS for background image and other styles */
+body {
+    background-image: url('../img/slide/slide-1.jpg'); /* Replace 'your-background-image.jpg' with your image path */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.container-custom {
+    background-color: rgba(255, 255, 255, 0.8); /* Adjust the opacity as needed */
+    border-radius: 10px;
+    padding: 30px;
+    margin-top: 80px;
+    margin-bottom: 50px;
+}
+/* Override blur effect for container */
+.container-custom {
+    filter: none;
+}
+
+#elt {
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+.bi-lightning-custom {
+    color: red;
+}
+
+.bi-calendar-custom {
+    color: blue;
+}
+
+.bi-speedometer-custom {
+    color: red;
+}
+
+.bi-lightbulb-custom {
+    color: orangered;
+}
+
+.bi-thermometer-custom {
+    color: orangered;
+}
+
+.bi-truck-custom {
+    color: green;
+}
