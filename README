@@ -13,7 +13,11 @@ This web application is developed using ASP.NET Web Forms technology, which allo
 - Generate reports and visualizations of carbon footprint data
 - User authentication and access control
 - Integration with external APIs for environmental data
-
+## Updates
+ - Includes DataEntry section for Electricity Consumption
+ - Includes DataEntry section for Transport Emissions
+ - Includes DataHistory section for Transport Emissions History
+ - Includes DataHistory section for Electricity Consumption History
 ## Installation
 
 1. Clone the repository:
