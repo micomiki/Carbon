@@ -16,7 +16,7 @@
 
             /* Additional styles for the login form container */
             .container-fluid {
-                background-color: rgba(47, 79, 79, 0.8);
+                background-color: rgba(47, 79, 79, 0.9);
                 border-radius: 10px;
                 padding: 30px;
                 margin-top: 150px;

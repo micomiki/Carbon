@@ -7,11 +7,56 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Carbon
+namespace CarbonFootprintCalculator
 {
 
 
     public partial class DataHistory
     {
+
+        /// <summary>
+        /// transportDataGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl transportDataGrid;
+
+        /// <summary>
+        /// lblTotaltransportCarbonFootprint control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotaltransportCarbonFootprint;
+
+        /// <summary>
+        /// electricityDataGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl electricityDataGrid;
+
+        /// <summary>
+        /// lblTotalelectricCarbonFootprint  control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalelectricCarbonFootprint;
+
+        /// <summary>
+        /// lblTotalCarbonFootprint control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalCarbonFootprint;
     }
 }

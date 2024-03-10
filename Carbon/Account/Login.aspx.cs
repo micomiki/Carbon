@@ -20,6 +20,13 @@ namespace Carbon.Account
             {
                 RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
             }
+
+            if (User.Identity.IsAuthenticated)
+            {
+                // Redirect to m.aspx if the user is signed in
+                Response.Redirect("~/Welcome.aspx");
+            }
+          
         }
 
         protected void LogIn(object sender, EventArgs e)
@@ -37,7 +44,7 @@ namespace Carbon.Account
                 switch (result)
                 {
                     case SignInStatus.Success:
-                        Response.Redirect("~/DataEntry.aspx");
+                        Response.Redirect("~/Welcome.aspx");
                         break;
                     case SignInStatus.LockedOut:
                         Response.Redirect("/Account/Lockout");

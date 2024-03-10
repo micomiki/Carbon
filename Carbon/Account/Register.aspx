@@ -14,7 +14,7 @@
 
             /* Additional styles for the login form container */
             .container-fluid {
-                background-color: rgba(47, 79, 79, 0.8);
+                background-color: rgba(47, 79, 79, 0.9);
                 border-radius: 10px;
                 padding: 30px;
                 margin-top: 150px;
@@ -92,7 +92,10 @@
                     <div class="row">
                         <div class="offset-md-2 col-md-10">
                             <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-primary rgbtn" />
-                        </div>
+                       <p>
+    <asp:HyperLink runat="server" ID="LoginHyperLink" ViewStateMode="Disabled" style="color:white">I have Account.</asp:HyperLink>
+</p>
+                            </div>
                     </div>
                 </div>
             </div>

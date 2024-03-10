@@ -21,7 +21,7 @@
             background-attachment: fixed;
         }
         .container-custom {
-            background-color: rgba(255, 255, 255, 0.8); /* Adjust the opacity as needed */
+            background-color: rgba(255, 255, 255, 0.9); /* Adjust the opacity as needed */
             border-radius: 10px;
             padding: 30px;
             margin-top: 80px;
@@ -132,21 +132,58 @@
         </div>
         </div>
     </form>
-    <script>
-        // Function to set the current date in the date inputs
-        function setCurrentDate() {
-            var today = new Date();
-            var dateInputTransport = document.getElementById("<%= txtDateTransport.ClientID %>");
-            var dateInputElectricity = document.getElementById("<%= txtDateElectricity.ClientID %>");
-            // Format the date as YYYY-MM-DD for input field value
-            var formattedDate = today.toISOString().substr(0, 10);
-            // Set the value of date inputs
-            dateInputTransport.value = formattedDate;
-            dateInputElectricity.value = formattedDate;
-        }
-        // Call the function to set the current date
-        setCurrentDate();
-    </script>
+<!-- Add this script to the end of your HTML body -->
+<!-- Add this script to the end of your HTML body -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // Function to show the success popup and redirect to another page
+    function handleFormSubmission() {
+        // Show the success popup
+        showSuccessPopup();
+        // Redirect to another page after a delay (you can adjust the delay as needed)
+        setTimeout(function () {
+            window.location.href = "DataHistory.aspx";
+        }, 2000); // 2000 milliseconds (2 seconds) delay before redirection
+    }
+
+    // Function to show the success popup
+    function showSuccessPopup() {
+        // You can customize this popup according to your needs
+        alert("Form submitted successfully!");
+    }
+
+    // Function to set the current date and time in the datetime inputs
+    function setCurrentDateTime() {
+        var today = new Date();
+        var datetimeInputTransport = document.getElementById("<%= txtDateTransport.ClientID %>");
+        var datetimeInputElectricity = document.getElementById("<%= txtDateElectricity.ClientID %>");
+        // Format the date and time as YYYY-MM-DD HH:MM for input field value
+        var formattedDateTime = today.toISOString().substr(0, 10) + ' ' + today.toTimeString().substr(0, 5);
+        // Set the value of datetime inputs
+        datetimeInputTransport.value = formattedDateTime;
+        datetimeInputElectricity.value = formattedDateTime;
+    }
+    // Call the function to set the current date and time
+    setCurrentDateTime();
+
+    // Check if the current page is DataEntry.aspx
+    var currentPage = '<%= Request.Url.AbsolutePath %>';
+    if (currentPage.endsWith("DataEntry.aspx")) {
+        // Remove active class from all navbar items
+        $('ul.navbar-nav > li > a.active').removeClass('active');
+
+        // Set the specific navbar item as active
+        $('#' + 'dataentry').addClass('active');
+
+        // Store the id of the active navbar item in local storage
+        localStorage.setItem('activeNavItem', 'dataentry');
+    }
+</script>
+
+
+
+
+
 </body>
 </html>
 </asp:Content>

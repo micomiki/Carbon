@@ -96,6 +96,14 @@
 
         <!-- Template Main JS File -->
         <script src="assets/js/main.js"></script>
+          <script>
+              $(document).ready(function () {
+                  // Function to handle click on navigation item
+                  localStorage.clear();
+              });
+          </script>
+
+
     </form>
 </body>
 </html>

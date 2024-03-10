@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DataHistory.aspx.cs" Inherits="Carbon.DataHistory" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DataHistory.aspx.cs" Inherits="CarbonFootprintCalculator.DataHistory" %>
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
 <!DOCTYPE html>
 
@@ -10,6 +10,8 @@
     <link href="assets/css/style.css" rel="stylesheet" />
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Custom CSS for background image and other styles -->
@@ -23,7 +25,7 @@
             
         }
         .container-custom {
-            background-color: rgba(255, 255, 255, 0.8); /* Adjust the opacity as needed */
+            background-color: rgba(255, 255, 255, 0.9); /* Adjust the opacity as needed */
             border-radius: 10px;
             padding: 30px;
             margin-top: 80px;
@@ -57,6 +59,12 @@
         .bi-truck-custom {
         color:blue;
         }
+        .bi-droplet-custom {
+        color:blue;
+        }
+        #lblTotalCarbonFootprint {
+        margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -74,12 +82,20 @@
                             <th><i class="bi bi-thermometer bi-thermometer-custom"></i> Fuel Type</th>
                             <th><i class="bi bi-speedometer bi-speedometer-custom"></i> Fuel Efficiency</th>
                             <th><i class="bi bi-calendar bi-calendar-custom"></i> Entry Date</th>
+                            <th><i class="bi bi-droplet bi-droplet-custom "></i> Carbon Footprint</th>
                         </tr>
                     </thead>
-                    <tbody id="transportData">
+                    <tbody id="transportDataGrid" runat="server">
                         <!-- Populate this section with data dynamically -->
                     </tbody>
                 </table>
+            <div class="row">        
+        <div class="col-md-6"></div>
+<div class="col-md-6 text-md-right">
+            
+            <asp:Label ID="lblTotaltransportCarbonFootprint" runat="server" CssClass="font-weight-bold text-right"></asp:Label>
+        </div>
+    </div>
                 </div>
                 
                 <!-- Electricity Consumption Section -->
@@ -91,12 +107,23 @@
                           <th><i class="bi bi-lightbulb bi-lightbulb-custom"></i> Energy Source</th>
                             <th><i class="bi bi-lightning-charge bi-lightning-custom"></i> Electricity Usage</th>
                             <th><i class="bi bi-calendar bi-calendar-custom"></i> Entry Date</th>
+                            <th><i class="bi bi-droplet bi-droplet-custom"></i> Carbon Footprint</th>
                         </tr>
                     </thead>
-                    <tbody id="electricityData">
+                    <tbody id="electricityDataGrid" runat="server">
                         <!-- Populate this section with data dynamically -->
                     </tbody>
                 </table>
+                    <div class="row">
+    <div class="col-md-6"></div>
+    <div class="col-md-6 text-md-right">
+        <asp:Label ID="lblTotalelectricCarbonFootprint" runat="server" CssClass="font-weight-bold"></asp:Label>
+    </div>
+</div>
+        
+                    <!-- Display total carbon footprint -->
+        <h1>Summary</h1>
+        <asp:Label ID="lblTotalCarbonFootprint" runat="server"  CssClass="font-weight-bold"></asp:Label>
                 </div>
             </div>
         </div>
